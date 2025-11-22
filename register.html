@@ -3,25 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code & Learn Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Code & Learn | Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="loginstyle.css">
 </head>
 <body>
-    <div class="login-container">
+    
+    <div class="video-wrapper">
+        <div class="video-overlay"></div>
+        <video autoplay loop muted playsinline class="background-clip">
+            <source src="img/YTDown.com_YouTube_Matrix-Rain-Codes-4K-FULL-HD_Media_MUVo20q6tx8_001_1080p.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <main class="login-container">
         <div class="logo-area">
-            <video autoplay loop muted plays-inline class="background-clip">
-                <source src="img/YTDown.com_YouTube_Matrix-Rain-Codes-4K-FULL-HD_Media_MUVo20q6tx8_001_1080p.mp4" type="video/mp4">
-            </video>
             <img src="./img/CodeLearn.png" alt="Code & Learn Logo" class="main-logo-image">
+            <h1>Bem-vindo </h1>
         </div>
 
-        <form class="login-form">
-            <input type="text" placeholder="NOME DE USUÁRIO" aria-label="Nome de usuário">
-            <input type="password" placeholder="SENHA" aria-label="Senha">
-            <button type="submit" class="login-button">CADASTRAR</button>
+        <form class="login-form" action="#" method="POST">
+            <div class="input-group">
+                <input type="text" id="username" required placeholder=" " autocomplete="username">
+                <label for="username">Nome de usuário</label required>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" id="password" required placeholder=" " autocomplete="current-password">
+                <label for="password">Senha</label required>
+            </div>
+
+            <button type="submit" class="login-button"><a href="./home.html">Criar Conta</a> </button>
         </form>
 
-        <p>Já tem uma conta? <a href="./index.html">Login</a></p>
-    </div>
+        <div class="footer-text">
+            <p>Já tem uma conta? <a href="./login.html">Login</a></p>
+        </div>
+    </main>
 </body>
 </html>
