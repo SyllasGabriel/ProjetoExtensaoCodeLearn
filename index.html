@@ -9,16 +9,19 @@
 <body>
     <div class="login-container">
         <div class="logo-area">
-            <video autoplay loop muted plays-inline class="background-clip">
+            <video autoplay loop muted playsinline class="background-clip">
                 <source src="img/YTDown.com_YouTube_Matrix-Rain-Codes-4K-FULL-HD_Media_MUVo20q6tx8_001_1080p.mp4" type="video/mp4">
             </video>
             <img src="./img/CodeLearn.png" alt="Code & Learn Logo" class="main-logo-image">
         </div>
 
-        <form class="login-form">
-            <input type="text" placeholder="NOME DE USUÁRIO" aria-label="Nome de usuário">
-            <input type="password" placeholder="SENHA" aria-label="Senha">
-            <button type="submit" class="login-button">LOGIN</button>
+        <form class="login-form" action="home.html"> 
+            
+            <input type="text" placeholder="NOME DE USUÁRIO" aria-label="Nome de usuário" required>
+            
+            <input type="password" placeholder="SENHA" aria-label="Senha" required>
+            
+            <button type="submit" class="login-button"><a href="home.html"></a>LOGIN</button>
         </form>
 
         <p>Não tem conta? <a href="./register.html">Cadastre-se</a></p>
