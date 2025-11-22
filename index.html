@@ -3,48 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code & Learn | Login</title>
-    <!-- Import Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>Code & Learn | Welcome</title>
+    <link rel="stylesheet" href="indexstyle.css">
+
 </head>
 <body>
-    
-    <!-- Video Background Container -->
     <div class="video-wrapper">
         <div class="video-overlay"></div>
         <video autoplay loop muted playsinline class="background-clip">
+        
             <source src="img/YTDown.com_YouTube_Matrix-Rain-Codes-4K-FULL-HD_Media_MUVo20q6tx8_001_1080p.mp4" type="video/mp4">
         </video>
     </div>
-
-    <main class="login-container">
-        <div class="logo-area">
-            <img src="./img/CodeLearn.png" alt="Code & Learn Logo" class="main-logo-image">
-            <h1>Bem-vindo de volta</h1>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="./img/CodeLearn (computador).png" alt="Logo Code & Learn" style="height: 50px; margin-right: 5px; border-radius: 4px;"> Code & Learn
+        </a>
+        <div class="nav-buttons">
+            <a href="login.html" class="btn-login">Login</a>
+            <a href="register.html" class="btn-register">Cadastrar</a>
         </div>
+    </header>
 
-        <form class="login-form" action="#" method="POST">
-            <div class="input-group">
-                <input type="text" id="username" required placeholder=" " autocomplete="username">
-                <label for="username">Nome de usuário</label>
-            </div>
-            
-            <div class="input-group">
-                <input type="password" id="password" required placeholder=" " autocomplete="current-password">
-                <label for="password">Senha</label>
-            </div>
+    <main class="container">
+        <section class="hero">
+            <h1>Domine a Lógica.<br><span>Hackeie o Sistema.</span></h1>
+            <p>Uma experiência de aprendizagem imersiva onde teoria e prática convergem para transformar a maneira como você codifica.</p>
+            <a href="register.html" class="cta-button">INICIAR JORNADA</a>
+        </section>
+        <div class="info-grid">
+            <article class="card">
+                <div class="card-icon"><i class="fas fa-brain"></i></div>
+                <h3>Imersão Prática</h3>
+                <p>
+                    O Code & Learn vai além do ensino tradicional. Criamos um ambiente onde cada linha de código conta. O objetivo não é apenas decorar sintaxe, mas compreender profundamente a lógica por trás de cada comando, promovendo uma imersão total na arte de desenvolver software.
+                </p>
+            </article>
+            <article class="card">
+                <div class="card-icon"><i class="fas fa-bug"></i></div>
+                <h3>Desafios Reais</h3>
+                <p>
+                    Dividido em fases de dificuldade progressiva, o jogo simula cenários reais do cotidiano de um programador. Desde a correção de bugs críticos até a otimização de algoritmos complexos, você será desafiado a aplicar conceitos teóricos para resolver problemas práticos e tangíveis.
+                </p>
+            </article>
+            <article class="card">
+                <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                <h3>Evolução Cognitiva</h3>
+                <p>
+                    Programar exige mais do que técnica. Nossos desafios são projetados para afiar habilidades cruciais como memória, atenção aos detalhes e raciocínio lógico-analítico. Ao superar cada nível, você não apenas se torna um melhor programador, mas desenvolve uma mente mais crítica e resolutiva.
+                </p>
+            </article>
 
-            <div class="actions">
-                <a href="#" class="forgot-pass">Esqueceu a senha?</a>
-            </div>
-
-            <button type="submit" class="login-button">Entrar no Sistema</button>
-        </form>
-
-        <div class="footer-text">
-            <p>Não tem conta? <a href="./register.html">Cadastre-se</a></p>
         </div>
     </main>
+
+    <footer>
+        <p>&copy; 2025 Code & Learn. Todos os direitos reservados.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">System.Status: Online</p>
+    </footer>
+
 </body>
 </html>

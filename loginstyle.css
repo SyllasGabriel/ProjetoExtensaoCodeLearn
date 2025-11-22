@@ -1,7 +1,7 @@
 :root {
-    --primary-color: #00ffc3; /* Matrix Neon */
+    --primary-color: #00ffc3; 
     --primary-hover: #00cc9c;
-    --bg-overlay: rgba(0, 10, 8, 0.85); /* Darker overlay for readability */
+    --bg-overlay: rgba(0, 10, 8, 0.85); 
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
     --text-main: #FFFFFF;
@@ -21,10 +21,10 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: #000;
-    overflow: hidden; /* Prevent scrollbars from video */
+    overflow: hidden; 
 }
 
-/* --- Background Video Styling --- */
+
 .video-wrapper {
     position: fixed;
     top: 0;
@@ -162,15 +162,22 @@ body {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.5s, box-shadow 0.2s;
     text-transform: uppercase;
     letter-spacing: 1px;
+
+ 
+}
+.login-button a {
+    text-decoration: none;
+    color: #000;
 }
 
 .login-button:hover {
     background-color: var(--primary-hover);
     box-shadow: 0 0 15px rgba(0, 255, 195, 0.4);
     transform: translateY(-1px);
+    
 }
 
 .footer-text {
