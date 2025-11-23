@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Code & Learn</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../assets/js/dashboard.js" defer></script>
+</head>
+<body>
+
+    <div class="app-background"></div>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <!-- Ensure logo path is correct (../assets/img/...) -->
+            <img src="../assets/img/CodeLearn.png" alt="Logo" class="nav-logo">
+        </div>
+        
+        <div class="nav-links">
+            <a href="#" class="active">Trilhas</a>
+            <!-- Changed from Desafios to Missões to match project scope -->
+            <a href="#">Missões</a> 
+            <!-- Removed Community -->
+            <!-- Added Conquistas (Badges) as it is a requirement RF05 -->
+            <a href="#">Conquistas</a>
+        </div>
+        
+        <div class="nav-profile"> <!-- Changed class name to match CSS if needed, but stick to structure -->
+            <div class="streak-container">
+                <div class="streak-dots">
+                    <div class="dot"></div><div class="dot active"></div><div class="dot active"></div><div class="dot"></div>
+                    <div class="dot active"></div><div class="dot active"></div><div class="dot active"></div>
+                </div>
+                <span class="streak-text"><i class="fa-solid fa-fire"></i> 5 Dias</span>
+            </div>
+            <div class="user-avatar">
+                <div class="avatar-circle"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+        
+        <!-- Updated Gamified Header -->
+        <header class="dashboard-header">
+            <div class="welcome-text">
+                <h1>Olá, <span id="playerName">Player 1</span></h1>
+                <p>Nível 4 • Iniciante em Python</p>
+                
+                <!-- XP Bar -->
+                <div class="xp-container">
+                    <div class="xp-info">
+                        <span>XP: 850 / 1000</span>
+                        <span>Próximo Nível</span>
+                    </div>
+                    <div class="xp-bar">
+                        <div class="xp-fill" style="width: 85%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Updated Card: "Current Quest" instead of "Last Session" -->
+            <div class="continue-card">
+                <div class="continue-info">
+                    <span>Missão Atual</span>
+                    <h4>Depuração: O Bug do Loop Infinito</h4> <!-- "Real World Scenario" -->
+                </div>
+                <!-- Points to the new Game Editor -->
+                <a href="editor.html" class="btn-resume"><i class="fa-solid fa-gamepad"></i> Jogar</a>
+            </div>
+        </header>
+
+        <!-- NEW: Badges/Conquistas Section (Requirement RF05) -->
+        <h3 class="section-title">Suas Conquistas</h3>
+        <div class="badges-grid">
+            <div class="badge-item">
+                <i class="fa-solid fa-bug"></i>
+                <span>Bug Hunter</span>
+            </div>
+            <div class="badge-item">
+                <i class="fa-solid fa-fire"></i>
+                <span>On Fire</span>
+            </div>
+            <div class="badge-item locked">
+                <i class="fa-solid fa-lock"></i>
+                <span>Algoritmo Mestre</span>
+            </div>
+        </div>
+
+        <h3 class="section-title">Seleção de Campanhas</h3>
+        
+        <div class="tracks-grid">
+            
+            <div class="track-card">
+                <div class="card-top">
+                    <div class="icon-box python-bg">
+                        <i class="fa-brands fa-python"></i>
+                    </div>
+                    <div class="track-meta">
+                        <span class="badge">Em progresso</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Mundo 1: A Lógica da Serpente</h3>
+                    <p>Decifre algoritmos antigos e automatize sistemas usando Python.</p>
+                    
+                    <div class="progress-wrapper">
+                        <div class="progress-info">
+                            <span>Progresso da Campanha</span>
+                            <span>35%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="fill" style="width: 35%; background: #3776AB;"></div>
+                        </div>
+                    </div>
+
+                    <div class="difficulty-tags">
+                        <a href="#" class="tag">Iniciante</a>
+                        <a href="#" class="tag">Intermediário</a>
+                        <a href="#" class="tag locked"><i class="fa-solid fa-lock"></i> Avançado</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="track-card">
+                <div class="card-top">
+                    <div class="icon-box js-bg">
+                        <i class="fa-brands fa-js"></i>
+                    </div>
+                    <div class="track-meta">
+                        <span class="badge">Não iniciado</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Mundo 2: Protocolo Web</h3>
+                    <p>Manipule o DOM e crie eventos dinâmicos para hackear interfaces.</p>
+                    
+                    <div class="progress-wrapper">
+                        <div class="progress-info">
+                            <span>Progresso da Campanha</span>
+                            <span>0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="fill" style="width: 0%; background: #F7DF1E;"></div>
+                        </div>
+                    </div>
+
+                    <div class="difficulty-tags">
+                        <a href="#" class="tag">Iniciante</a>
+                        <a href="#" class="tag locked"><i class="fa-solid fa-lock"></i> Intermediário</a>
+                        <a href="#" class="tag locked"><i class="fa-solid fa-lock"></i> Avançado</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
