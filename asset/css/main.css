@@ -1,0 +1,261 @@
+@import 'variables.css';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-dark);
+    /* Professional Grid Background */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Glow Effect behind Hero */
+body::before {
+    content: '';
+    position: fixed;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(0, 255, 195, 0.08) 0%, rgba(0,0,0,0) 70%);
+    filter: blur(100px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* --- Header --- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    background: rgba(5, 5, 5, 0.7);
+}
+
+.logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    margin-left: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-login {
+    color: var(--text-main);
+    opacity: 0.8;
+}
+.btn-login:hover { 
+    color: var(--primary-color); 
+    opacity: 1;
+}
+
+.btn-register {
+    border: 1px solid var(--primary-color);
+    padding: 8px 20px;
+    border-radius: 6px;
+    color: var(--primary-color);
+}
+.btn-register:hover {
+    background: var(--primary-color);
+    color: #000;
+    box-shadow: 0 0 15px rgba(0, 255, 195, 0.3);
+}
+
+/* --- Hero --- */
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 140px 20px 60px; 
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 100px;
+    animation: fadeIn 1s ease-out;
+}
+
+.hero h1 {
+    font-family: 'JetBrains Mono', monospace;
+    /* Clamp makes font size responsive automatically */
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 24px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, #00ffc3, #00b8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(0, 255, 195, 0.2);
+}
+
+.hero p {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #000;
+    padding: 18px 36px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 20px rgba(0, 255, 195, 0.1);
+}
+
+.cta-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0, 255, 195, 0.4);
+}
+
+/* --- Cards (High-End Glassmorphism) --- */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    /* Inner Glow Trick */
+    box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 35px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    opacity: 0;
+    transform: translate(50px);
+    transition: all 0.8s ease-out;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translate(0);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 255, 195, 0.3);
+    box-shadow: 0 8px 32px -4px rgba(0, 255, 195, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.25rem;
+    color: var(--text-main);
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--glass-border);
+    margin-top: 100px;
+    background: rgba(0,0,0,0.3);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    header { padding: 15px 20px; flex-wrap: wrap; }
+    .nav-buttons { margin-top: 10px; width: 100%; display: flex; justify-content: center; }
+    .container { padding-top: 120px; }
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+
+    .nav-buttons {
+        position: absolute;
+        top: 70px; /* Header height */
+        right: -100%; /* Hidden by default */
+        width: 100%;
+        background: rgba(5, 5, 5, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        transition: 0.3s ease-in-out;
+        border-bottom: 1px solid var(--glass-border);
+    }
+
+    /* This class is added via JS */
+    .nav-buttons.active {
+        right: 0;
+    }
+
+    .nav-buttons a {
+        margin: 15px 0;
+        font-size: 1.2rem;
+    }
+}

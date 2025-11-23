@@ -1,0 +1,28 @@
+/* assets/css/variables.css */
+:root {
+    /* --- Core Brand Colors --- */
+    --primary-color: #00ffc3; 
+    --primary-hover: #00cc9c;
+    
+    /* Dashboard specific alias (The dashboard code uses 'accent' instead of 'color') */
+    --primary-accent: #00ffc3; 
+
+    /* --- Backgrounds --- */
+    --bg-dark: #050505;
+    
+    /* Used for the Login/Main Glass effects */
+    --glass-bg: rgba(20, 20, 20, 0.6); 
+    
+    /* Used for Dashboard Cards (Slightly different shade originally) */
+    --bg-card: rgba(22, 27, 34, 0.6); 
+
+    /* --- Borders --- */
+    --glass-border: rgba(255, 255, 255, 0.08);
+    
+    /* Dashboard specific alias */
+    --border-color: rgba(255, 255, 255, 0.08);
+
+    /* --- Typography --- */
+    --text-main: #f0f6fc; /* Slightly softer white for dashboard reading comfort */
+    --text-muted: #8b949e;
+}
