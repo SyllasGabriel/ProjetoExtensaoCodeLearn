@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Código | Code & Learn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Load Variables First -->
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <!-- Load Editor Styles -->
+    <link rel="stylesheet" href="../assets/css/editor.css">
+</head>
+<body>
+
+    <!-- Background Grid -->
+    <div class="app-background"></div>
+
+    <!-- Top Navigation -->
+    <nav class="editor-nav">
+        <div class="nav-left">
+            <a href="dashboard.html" class="btn-back"><i class="fa-solid fa-chevron-left"></i> Voltar</a>
+            <div class="level-info">
+                <span class="level-badge">Nível 1</span>
+                <span class="level-title">O Loop Infinito</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="timer"><i class="fa-regular fa-clock"></i> 00:00</div>
+            <button class="btn-run" onclick="runCode()">
+                <i class="fa-solid fa-play"></i> Executar
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Editor Layout -->
+    <main class="editor-grid">
+        
+        <!-- 1. Briefing Panel (Left) -->
+        <aside class="panel briefing-panel">
+            <div class="panel-header"><i class="fa-solid fa-book"></i> Missão</div>
+            <div class="panel-content">
+                <h2>Problema Crítico</h2>
+                <p>O sistema de segurança do banco está travado. O loop de verificação foi configurado errado e está rodando mais vezes do que o necessário.</p>
+                
+                <div class="objective-card">
+                    <h3><i class="fa-solid fa-crosshairs"></i> Objetivo</h3>
+                    <p>Altere a condição do <code>while</code> para que o loop pare quando o contador chegar a <strong>5</strong>.</p>
+                </div>
+
+                <div class="tips">
+                    <p><i class="fa-regular fa-lightbulb"></i> <strong>Dica:</strong> O operador <code><</code> significa "menor que".</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 2. Code Editor (Center) -->
+        <section class="panel code-panel">
+            <div class="panel-header">
+                <span class="file-tab active"><i class="fa-brands fa-python"></i> main.py</span>
+            </div>
+            <div class="editor-wrapper">
+                <!-- Fake Line Numbers -->
+                <div class="line-numbers">
+                    1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+                </div>
+                <!-- The Input Area -->
+                <textarea id="codeInput" spellcheck="false" autocomplete="off">
+# Variável inicial
+contador = 0
+
+# BUG: O loop vai até 10, mas precisamos apenas de 5!
+while contador < 10:
+    print("Verificando acesso...")
+    contador = contador + 1
+
+print("Sistema liberado!")</textarea>
+            </div>
+        </section>
+
+        <!-- 3. Terminal (Right/Bottom) -->
+        <aside class="panel terminal-panel">
+            <div class="panel-header"><i class="fa-solid fa-terminal"></i> Console</div>
+            <div class="terminal-content" id="terminalOutput">
+                <span class="sys-msg">> Sistema pronto...</span>
+                <span class="sys-msg">> Aguardando execução...</span>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- Success Modal (Hidden by default) -->
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-icon"><i class="fa-solid fa-trophy"></i></div>
+            <h2>Desafio Concluído!</h2>
+            <p>Você corrigiu o bug e otimizou o sistema.</p>
+            
+            <div class="rewards">
+                <div class="reward-item"><span>+100</span> XP</div>
+                <div class="reward-item"><span>+1</span> Badge</div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-next" onclick="window.location.href='dashboard.html'">Voltar ao Hub</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/editor.js"></script>
+</body>
+</html>

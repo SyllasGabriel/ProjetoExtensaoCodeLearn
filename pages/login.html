@@ -5,39 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code & Learn | Login</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/loginstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/auth.css">
+    <script src="../assets/js/auth.js" defer></script>
 </head>
 <body>
     
-    <div class="video-wrapper">
-        <div class="video-overlay"></div>
-        <video autoplay loop muted playsinline class="background-clip">
-            <source src="../img/YTDown.com_YouTube_Matrix-Rain-Codes-4K-FULL-HD_Media_MUVo20q6tx8_001_1080p.mp4" type="video/mp4">
-        </video>
-    </div>
-
     <main class="login-container">
         <div class="logo-area">
-            <img src="../img/CodeLearn.png" alt="Code & Learn Logo" class="main-logo-image">
-            <h1>Bem-vindo </h1>
+            <img src="../assets/img/CodeLearn.png" alt="Code & Learn Logo" class="main-logo-image">
+            <h1>Bem-vindo</h1>
         </div>
 
-        <form class="login-form" action="#" method="POST">
+        <form class="login-form" action="#" method="POST" onsubmit="event.preventDefault();">
             <div class="input-group">
                 <input type="text" id="username" required placeholder=" " autocomplete="username">
-                <label for="username">Nome de usuário</label >
+                <label for="username">Nome de usuário</label>
             </div>
             
             <div class="input-group">
                 <input type="password" id="password" required placeholder=" " autocomplete="current-password">
-                <label for="password">Senha</label >
+                <label for="password">Senha</label>
+                <i class="fa-solid fa-eye toggle-password" onclick="togglePassword()"></i>
             </div>
 
             <div class="actions">
                 <a href="#" class="forgot-pass">Esqueceu a senha?</a>
             </div>
 
-            <button type="submit" class="login-button"><a href="./home.html">Entrar no Sistema</a> </button>
+            <button type="submit" class="btn-submit">Entrar no Sistema</button>
         </form>
 
         <div class="footer-text">

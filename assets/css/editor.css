@@ -1,0 +1,242 @@
+@import 'variables.css';
+
+/* --- GLOBAL SETTINGS --- */
+* {
+    box-sizing: border-box;
+    color: var(--text-main); 
+}
+
+body {
+    overflow: hidden;
+    background-color: var(--bg-dark);
+    position: relative; /* Needed for the glow orb */
+}
+
+/* 1. THE FIX: The Glow Orb (Light Source) */
+body::before {
+    content: '';
+    position: fixed;
+    top: -30%; /* Positioned top center */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    /* A soft green/blue glow to light up the glass */
+    background: radial-gradient(circle, rgba(0, 255, 195, 0.15) 0%, rgba(30, 144, 255, 0.05) 60%, rgba(0,0,0,0) 70%);
+    filter: blur(120px);
+    z-index: -2; /* Behind everything */
+    pointer-events: none;
+}
+
+/* 2. THE BACKGROUND GRID */
+.app-background {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* --- NAVBAR --- */
+.editor-nav {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--glass-border);
+    /* More transparent to show the glow */
+    background: rgba(5, 5, 5, 0.5); 
+    backdrop-filter: blur(12px);
+}
+
+.nav-left, .nav-right { display: flex; align-items: center; gap: 20px; }
+
+.btn-back {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: 0.2s;
+    display: flex; align-items: center; gap: 5px;
+}
+.btn-back:hover { color: var(--primary-color); }
+
+.level-badge { 
+    background: rgba(0, 255, 195, 0.1); 
+    color: var(--primary-color); 
+    padding: 4px 8px; 
+    border-radius: 4px; 
+    font-size: 0.7rem; 
+    font-weight: bold;
+    border: 1px solid rgba(0, 255, 195, 0.2);
+}
+
+.btn-run {
+    background: var(--primary-color);
+    color: #000 !important;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    transition: all 0.2s;
+}
+.btn-run:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 20px rgba(0, 255, 195, 0.4);
+}
+
+/* --- MAIN GRID --- */
+.editor-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+    height: calc(100vh - 60px);
+    gap: 1px;
+    /* The gap becomes the border lines */
+    background: rgba(255, 255, 255, 0.05); 
+}
+
+/* --- PANELS (The Glass Fix) --- */
+.panel {
+    /* Lighter transparency so the glow shows through */
+    background: rgba(15, 19, 25, 0.65); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.panel-header {
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid var(--glass-border);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    display: flex; align-items: center; gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.panel-content { padding: 20px; overflow-y: auto; flex-grow: 1; }
+
+/* Briefing */
+.briefing-panel h2 { color: var(--primary-color); font-size: 1.2rem; margin-bottom: 10px; }
+.briefing-panel p { font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 20px; }
+
+.objective-card {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    border-left: 3px solid var(--primary-color);
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+/* Code Editor */
+.editor-wrapper {
+    flex-grow: 1;
+    display: flex;
+    position: relative;
+    background: rgba(13, 17, 23, 0.8); /* Darker, but still slightly transp */
+}
+
+.line-numbers {
+    padding: 20px 10px;
+    text-align: right;
+    color: #484f58;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    border-right: 1px solid #30363d;
+    user-select: none;
+    background: rgba(0,0,0,0.2);
+}
+
+#codeInput {
+    flex-grow: 1;
+    background: transparent !important;
+    color: #f0f6fc !important;
+    border: none;
+    outline: none;
+    padding: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    resize: none;
+    white-space: pre;
+}
+
+.file-tab {
+    padding: 8px 16px;
+    background: rgba(13, 17, 23, 0.8);
+    border-radius: 4px 4px 0 0;
+    color: var(--text-main);
+    font-size: 0.8rem;
+    border-top: 2px solid var(--primary-color);
+}
+
+/* Terminal */
+.terminal-panel { background: rgba(5, 5, 5, 0.8); }
+.terminal-content {
+    padding: 15px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+}
+.sys-msg { display: block; margin-bottom: 5px; color: #8b949e; }
+.success-msg { color: var(--primary-color); display: block; }
+.error-msg { color: #ff7b72; display: block; }
+
+/* Modal */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: none;
+    align-items: center; justify-content: center;
+}
+.modal-overlay.active { display: flex; animation: fadeIn 0.3s ease; }
+
+.modal-card {
+    background: #161b22;
+    border: 1px solid var(--primary-color);
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 0 50px rgba(0, 255, 195, 0.15);
+}
+
+.modal-icon { font-size: 3rem; color: #FFD700; margin-bottom: 20px; }
+.rewards { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
+.reward-item { 
+    background: rgba(255,255,255,0.05); 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    color: var(--text-main);
+}
+
+.btn-next {
+    background: var(--primary-color);
+    color: #000 !important;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+    .editor-grid { grid-template-columns: 1fr; height: auto; display: block; }
+    body { overflow: auto; }
+    .panel { height: auto; min-height: 300px; }
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
